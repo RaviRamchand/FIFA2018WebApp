@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid;
+}
+
+a:visited {
+    color:blue;
+}
+
+header{
+    text-align: center;
+}
+
+div.form{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+footer{
+    background-color: #40ff00;
+    position: fixed;
+    left: 0px;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
