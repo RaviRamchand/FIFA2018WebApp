@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Team</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header th:insert="fragments/header.html::header"></header>
+
+<h2>Add Team</h2>
+
+<div class="form">
+    <form method="post" th:action="@{/formTeam}" th:object="${team}">
+        Team Name: <input type="text" th:field="*{teamName}"> <br><br>
+        Continent: <select th:field="*{continent}"> <br><br>
+        <option th:each="c:*{continents}" th:value="${c}" th:text="${c}"></option>
+    </select> <br><br>
+        Games Played: <input type="number" th:field="*{played}"> <br><br>
+        Games Won: <input type="number" th:field="*{won}"> <br><br>
+        Games Drawn: <input type="number" th:field="*{drawn}"> <br><br>
+        Games Lost: <input type="number" th:field="*{lost}"> <br><br>
+
+        <input type="submit" value="Add Team">
+    </form>
+</div>
+
+<footer th:insert="fragments/footer.html::footer"></footer>
+</body>
+</html>

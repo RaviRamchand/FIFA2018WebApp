@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Team</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header th:insert="fragments/header.html::header"></header>
+
+<h2>Results</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th><a th:href="@{/sortName}">Team Name</a></th>
+        <th><a th:href="@{/sortContinent}">Continent</a></th>
+        <th>Played</th>
+        <th>Won</th>
+        <th>Drawn</th>
+        <th>Lost</th>
+        <th><a th:href="@{/sortPts}">Pts</a></th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="t:${teamList}">
+        <td th:text="${t.id}"></td>
+        <td th:text="${t.teamName}"></td>
+        <td th:text="${t.continent}"></td>
+        <td th:text="${t.played}"></td>
+        <td th:text="${t.won}"></td>
+        <td th:text="${t.drawn}"></td>
+        <td th:text="${t.lost}"></td>
+        <td th:text=" ${(t.won * 3) + (t.drawn * 1) + (t.lost * 0)}"></td>
+
+        <td><a th:href="@{/editTeamById/}+${t.id}">Edit</a></td>
+        <td><a th:href="@{/deleteTeamById/}+${t.id}">Delete</a></td>
+    </tr>
+</table>
+
+<p>Welcome to the Reports page for the Fifa World Cup 2018! If you want to sort based off Team, Continent or Points,
+    simply click its name</p>
+
+<footer th:insert="fragments/footer.html::footer"></footer>
+</body>
+</html>

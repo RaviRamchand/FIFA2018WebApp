@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Team</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<div class="form">
+    <form method="post" th:action="@{/updateTeam}" th:object="${teamList}">
+        <input type="hidden" th:field="*{id}">
+        Team Name: <input type="text" th:field="*{teamName}"> <br><br>
+        Continent: <select th:field="*{continent}"> <br><br>
+        <option th:each="c:*{continents}" th:value="${c}" th:text="${c}"></option>
+    </select> <br><br>
+        Games Played: <input type="number" th:field="*{played}"> <br><br>
+        Games Won: <input type="number" th:field="*{won}"> <br><br>
+        Games Drawn: <input type="number" th:field="*{drawn}"> <br><br>
+        Games Lost: <input type="number" th:field="*{lost}"> <br><br>
+
+        <input type="submit" value="Add Team">
+    </form>
+</div>
+
+</body>
+</html>
